@@ -40,7 +40,7 @@ class Navbar extends Component {
           </Link>
         </li>,
         <li className="nav-item" key="3">
-          <Link className="nav-link" to="/" onClick={this.logout}>
+          <Link className="nav-link" to="/TipsCalc" onClick={this.logout}>
             <img src={this.props.userData.avatar} className="profilePic" />
             Logout
           </Link>
