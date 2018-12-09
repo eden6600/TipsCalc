@@ -1,30 +1,30 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import fire from "../config/Fire";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import fire from '../config/Fire';
 
 class RegisterWaiter extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      name: "",
-      uid: "",
-      avatar: ""
+      email: '',
+      password: '',
+      name: '',
+      uid: '',
+      avatar: ''
     };
   }
 
   saveUserData = () => {
     const db = fire.firestore();
-    db.collection("Users").doc(this.state.uid)
+    db.collection('Users')
+      .doc(this.state.uid)
       .set({
         name: this.state.name,
         email: this.state.email,
         uid: this.state.uid,
         avatar: this.state.avatar
       })
-      .then(docRef => {
-      })
+      .then(docRef => {})
       .catch(error => {
         console.log(error);
       });
@@ -34,7 +34,10 @@ class RegisterWaiter extends Component {
 
   onSubmit = e => {
     e.preventDefault();
-    this.setState({avatar: 'https://use.fontawesome.com/releases/v5.0.13/svgs/solid/user-circle.svg'})
+    this.setState({
+      avatar:
+        'https://use.fontawesome.com/releases/v5.0.13/svgs/solid/user-circle.svg'
+    });
     fire
       .auth()
       .createUserWithEmailAndPassword(this.state.email, this.state.password)
@@ -44,7 +47,7 @@ class RegisterWaiter extends Component {
           uid: user.uid
         });
         this.saveUserData();
-        this.props.history.push('/');
+        this.props.history.push('/TipsCalc');
       })
       .catch(error => {
         console.log(error);
@@ -90,7 +93,11 @@ class RegisterWaiter extends Component {
 
             <div className="row">
               <div className="col-md-12">
-                <button type="submit" className="btn btn-info btn-block" onClock={this.onSubmit}>
+                <button
+                  type="submit"
+                  className="btn btn-info btn-block"
+                  onClock={this.onSubmit}
+                >
                   Submit
                 </button>
               </div>
