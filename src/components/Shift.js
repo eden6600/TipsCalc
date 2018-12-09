@@ -1,8 +1,7 @@
-import React, { Component } from "react";
-import fire from "../config/Fire";
-import { ClipLoader } from "react-spinners";
-import { SyncLoader } from "react-spinners";
-
+import React, { Component } from 'react';
+import fire from '../config/Fire';
+import { ClipLoader } from 'react-spinners';
+import { SyncLoader } from 'react-spinners';
 
 export default class Shift extends Component {
   constructor(props) {
@@ -18,14 +17,16 @@ export default class Shift extends Component {
 
   render() {
     if (!this.state.shiftLoaded) {
-      return null
+      return null;
     }
-    
+
     const shift = this.props.shift;
     let tbody = shift.waiters.map(waiter => {
       return (
         <tr>
-          <td><img src={waiter.avatar} className="avatar-big" /></td>
+          <td>
+            <img src={waiter.avatar} className="avatar-big" />
+          </td>
           <td>{waiter.name}</td>
           <td>{waiter.startHour}</td>
           <td>{waiter.endHour}</td>
@@ -41,13 +42,11 @@ export default class Shift extends Component {
       <div className="">
         <div className="card">
           <div className="card-header bg-info text-white">
-          <span className="mr-1">
-            {shift.date.getDate()}/{shift.date.getMonth() + 1}/{shift.date.getFullYear()}
-          </span>
-          <span>
-            {shift.shiftTime}
-          </span>
-          
+            <span className="mr-1">
+              {shift.date.getDate()}/{shift.date.getMonth() + 1}/
+              {shift.date.getFullYear()}
+            </span>
+            <span>{shift.shiftTime}</span>
           </div>
           <div className="card-body">
             <table className="table">
