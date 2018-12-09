@@ -1,14 +1,14 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import fire from "../config/Fire";
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import fire from '../config/Fire';
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.state={
+    this.state = {
       userContent: [],
-      adminContent: [],
-    }
+      adminContent: []
+    };
   }
   logout = () => {
     fire
@@ -18,8 +18,7 @@ class Navbar extends Component {
       .catch(() => {});
   };
 
-  componentWillUpdate = () => {
-  }
+  componentWillUpdate = () => {};
 
   render() {
     let userContent, adminContent, contents;
@@ -31,10 +30,10 @@ class Navbar extends Component {
           </Link>
         </li>,
         <li className="nav-item" key="4">
-        <Link className="nav-link" to="/last_shift">
-          Last Shift
-        </Link>
-      </li>,
+          <Link className="nav-link" to="/last_shift">
+            Last Shift
+          </Link>
+        </li>,
         <li className="nav-item" key="2">
           <Link className="nav-link" to="/history">
             History
@@ -45,11 +44,11 @@ class Navbar extends Component {
             <img src={this.props.userData.avatar} className="profilePic" />
             Logout
           </Link>
-        </li>, 
+        </li>
       ];
     } else {
       userContent = (
-        <li className="nav-item"  key="5"> 
+        <li className="nav-item" key="5">
           <Link className="nav-link" to="/login">
             Login
           </Link>
@@ -72,7 +71,7 @@ class Navbar extends Component {
     return (
       <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
         <div className="container">
-          <Link className="navbar-brand" to="/">
+          <Link className="navbar-brand" to="/TipsCalc">
             TipsCalc
           </Link>
           <button
